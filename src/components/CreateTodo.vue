@@ -34,6 +34,7 @@
 
 
 <script>
+import { mapState } from 'vuex';
 export default {
     data() {
         return {
@@ -42,6 +43,11 @@ export default {
             isCreating: false,
         };
     },
+      computed: {
+    ...mapState({
+      todos: state => state.todoList
+    })
+  },
     methods: {
         openForm() {
             this.isCreating = true;
@@ -53,7 +59,7 @@ export default {
             if (this.titleText.length > 0 && this.projectText.length > 0) {
                 const title = this.titleText;
                 const project = this.projectText;
-                this.$emit('create-todo', {
+                this.todos.push( {
                     title,
                     project,
                     done: false,
