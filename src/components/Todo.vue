@@ -11,11 +11,11 @@
       </div>
     </div>
     <button
-      class="ui bottom attached green basic button" v-show="todo.done">
+      class="ui bottom attached green basic button" v-show="todo.done" @click="todo.done = !todo.done">
       Completed
     </button>
     <button
-      class="ui bottom attached red basic button" v-show="!todo.done">
+      class="ui bottom attached red basic button" v-show="!todo.done" @click="todo.done = !todo.done">
       Pending
     </button>
   </div>
